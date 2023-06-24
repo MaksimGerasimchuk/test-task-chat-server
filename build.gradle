@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    compileOnly 'javax.websocket:javax.websocket-api:1.1'
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'redis.clients:jedis:4.3.2'
+    implementation 'org.yaml:snakeyaml:2.0'
+    // older version to match with 'javax' instead of 'jakarta' api
+    implementation 'com.google.inject:guice:5.0.0'
+    implementation 'com.google.inject.extensions:guice-servlet:5.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0-M1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0-M1'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.4.0'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+war {
+    archiveName = 'ROOT.war'
+}
+
